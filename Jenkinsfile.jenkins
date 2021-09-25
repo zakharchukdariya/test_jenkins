@@ -15,7 +15,7 @@ pipeline  {
            steps {
                echo 'Creating docker image ...'
                dir('.'){
-                   sh "docker build -t macnaer/testsite . "
+                   sh "docker build -t zakharchukdaria/testsite . "
                }
           }
        }
@@ -33,7 +33,7 @@ pipeline  {
            steps {
                echo " ============== pushing image =================="
                sh '''
-               docker push macnaer/testsite:latest
+               docker push zakharchukdaria/testsite:latest
                '''
            }
        }
@@ -57,7 +57,7 @@ pipeline  {
            steps {
                echo " ============== starting chatterbox server =================="
                sh '''
-               docker run -d --restart=always --name webserver -p 80:80 macnaer/testsite
+               docker run -d --restart=always --name webserver -p 80:80 zakharchukdaria/testsite
               '''
            }
        }
